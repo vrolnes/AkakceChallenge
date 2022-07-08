@@ -3,15 +3,15 @@ package com.example.akakcechallenge
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.akakcechallenge.ui.component.HorizontalScroll
-import com.example.akakcechallenge.ui.component.VerticalGrid
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.akakcechallenge.feature.detailScreen.DetailScreen
+import com.example.akakcechallenge.feature.mainScreen.MainScreen
 import com.example.akakcechallenge.ui.theme.AkakceChallengeTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,22 +19,26 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val test = listOf("A", "B", "C")
         setContent {
+            val navController = rememberNavController()
             AkakceChallengeTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreen(test)
+                    NavHost(navController = navController, startDestination = "mainScreen") {
+                        composable("mainScreen") {
+                            MainScreen(
+                                navController = navController,
+                                test = test,
+                                onItemClicked = {
+                                    navController.navigate("detailScreen")
+                                }
+                            )
+                        }
+                        composable("detailScreen") { DetailScreen() }
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun MainScreen(test: List<String>) {
-    Column(modifier = Modifier.fillMaxSize()) {
-        HorizontalScroll(modifier = Modifier.fillMaxWidth(), listItems = test)
-        VerticalGrid(gridItems = test + test)
     }
 }

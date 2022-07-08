@@ -1,5 +1,6 @@
 package com.example.akakcechallenge.ui.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,7 +13,7 @@ import com.google.accompanist.pager.rememberPagerState
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HorizontalScroll(modifier: Modifier, listItems: List<Any>) {
+fun HorizontalScroll(modifier: Modifier, listItems: List<Any>, onItemClicked: (String) -> Unit) {
     Column(modifier = modifier) {
         val pagerState = rememberPagerState()
         HorizontalPager(
@@ -21,7 +22,7 @@ fun HorizontalScroll(modifier: Modifier, listItems: List<Any>) {
             modifier = Modifier
                 .fillMaxWidth(),
         ) { page ->
-            HorizontalScrollItem(scrollItem = listItems[page])
+            HorizontalScrollItem(scrollItem = listItems[page], onItemClicked)
         }
         HorizontalPagerIndicator(
             pagerState = pagerState,
@@ -33,11 +34,14 @@ fun HorizontalScroll(modifier: Modifier, listItems: List<Any>) {
 }
 
 @Composable
-fun HorizontalScrollItem(scrollItem: Any) {
+fun HorizontalScrollItem(scrollItem: Any, onItemClicked: (String) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 4.dp),
+            .padding(top = 4.dp)
+            .clickable {
+                onItemClicked("124")
+            },
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
