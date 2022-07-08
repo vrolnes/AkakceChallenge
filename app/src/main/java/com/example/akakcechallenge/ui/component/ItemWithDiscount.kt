@@ -9,14 +9,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ItemWithDiscountCard(contentAlignment: Alignment){
+fun ItemWithDiscountImage(contentAlignment: Alignment) {
     Box(
-        modifier = Modifier.wrapContentWidth()
-            .padding(16.dp),
+        modifier = Modifier.wrapContentWidth(),
         contentAlignment = contentAlignment
     ) {
         AsyncImage(
-            modifier = Modifier.wrapContentWidth().padding(32.dp),
+            modifier = Modifier
+                .wrapContentWidth()
+                .padding(32.dp),
             imageUrl = "https://cdn.akakce.com/x/apple/iphone-13.jpg"
         )
         CircleShape(text = "10")

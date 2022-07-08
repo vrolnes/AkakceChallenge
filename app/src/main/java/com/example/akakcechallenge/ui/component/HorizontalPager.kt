@@ -1,9 +1,11 @@
 package com.example.akakcechallenge.ui.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -18,12 +20,10 @@ fun HorizontalScroll(modifier: Modifier, listItems: List<Any>) {
         HorizontalPager(
             count = listItems.size,
             state = pagerState,
-            contentPadding = PaddingValues(horizontal = 32.dp),
             modifier = Modifier
-                .weight(1f)
                 .fillMaxWidth(),
         ) { page ->
-        HorizontalScrollItem(scrollItem = listItems[page])
+            HorizontalScrollItem(scrollItem = listItems[page])
         }
         HorizontalPagerIndicator(
             pagerState = pagerState,
@@ -36,7 +36,14 @@ fun HorizontalScroll(modifier: Modifier, listItems: List<Any>) {
 
 @Composable
 fun HorizontalScrollItem(scrollItem: Any) {
-    Row(modifier = Modifier.wrapContentSize()) {
-        ItemWithDiscountCard(contentAlignment = Alignment.TopEnd)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 4.dp),
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        ItemWithDiscountImage(contentAlignment = Alignment.TopEnd)
+        ItemInfo(modifier = Modifier.wrapContentSize(), item = "")
     }
 }
