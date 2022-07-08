@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.akakcechallenge.data.HorizontalProduct
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
@@ -13,7 +14,11 @@ import com.google.accompanist.pager.rememberPagerState
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HorizontalScroll(modifier: Modifier, listItems: List<Any>, onItemClicked: (String) -> Unit) {
+fun HorizontalScroll(
+    modifier: Modifier,
+    listItems: List<HorizontalProduct>,
+    onItemClicked: (String) -> Unit
+) {
     Column(modifier = modifier) {
         val pagerState = rememberPagerState()
         HorizontalPager(
@@ -34,18 +39,21 @@ fun HorizontalScroll(modifier: Modifier, listItems: List<Any>, onItemClicked: (S
 }
 
 @Composable
-fun HorizontalScrollItem(scrollItem: Any, onItemClicked: (String) -> Unit) {
+fun HorizontalScrollItem(scrollItem: HorizontalProduct, onItemClicked: (String) -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 4.dp)
             .clickable {
-                onItemClicked("124")
+                onItemClicked(scrollItem.code.toString())
             },
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        ItemWithDiscountImage(contentAlignment = Alignment.TopEnd)
-        ItemInfo(modifier = Modifier.wrapContentSize(), item = "")
+        ItemWithDiscountImage(
+            scrollItem.imageUrl.toString(),
+            scrollItem.dropRatio.toString(), contentAlignment = Alignment.TopEnd
+        )
+        ItemInfo(modifier = Modifier.wrapContentSize(), item = scrollItem)
     }
 }

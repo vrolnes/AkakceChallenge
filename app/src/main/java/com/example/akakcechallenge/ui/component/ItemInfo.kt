@@ -11,17 +11,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.akakcechallenge.data.HorizontalProduct
+import com.example.akakcechallenge.data.Product
 
 @Composable
-fun ItemInfo(modifier: Modifier, item: Any) {
+fun ItemInfo(modifier: Modifier, item: HorizontalProduct) {
     Column(modifier = modifier) {
-        Text(text = "iPhone 13 128 GB", color = Color.Blue)
+        Text(text = item.name.toString(), color = Color.Blue)
         Spacer(modifier = Modifier.width(4.dp))
-        Text(text = "20.567,00 TL")
-        Text(text = "131 satıcı >")
-        Text(text = "3.000 takip")
+        Text(text = item.price.toString())
+        Text(text = item.countOfPrices.toString())
+        Text(text = item.followCount.toString())
     }
 }
+
+@Composable
+fun ItemInfo(modifier: Modifier, item: Product) {
+    Column(modifier = modifier) {
+        Text(text = item.name.toString(), color = Color.Blue)
+        Spacer(modifier = Modifier.width(4.dp))
+        Text(text = item.price.toString())
+        Text(text = item.countOfPrices.toString())
+        Text(text = item.followCount.toString())
+    }
+}
+
 
 @Composable
 fun ItemDetailInfo(modifier: Modifier, item: Any) {

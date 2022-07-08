@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ItemWithDiscountImage(contentAlignment: Alignment) {
+fun ItemWithDiscountImage(imageUrl: String, dropRatio: String, contentAlignment: Alignment) {
     Box(
         modifier = Modifier.wrapContentWidth(),
         contentAlignment = contentAlignment
@@ -18,8 +18,8 @@ fun ItemWithDiscountImage(contentAlignment: Alignment) {
             modifier = Modifier
                 .wrapContentWidth()
                 .padding(32.dp),
-            imageUrl = "https://cdn.akakce.com/x/apple/iphone-13.jpg"
+            imageUrl = imageUrl
         )
-        CircleShape(text = "10")
+        CircleShape(text = dropRatio)
     }
 }

@@ -8,10 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.akakcechallenge.data.Product
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun VerticalGrid(gridItems: List<Any>){
+fun VerticalGrid(gridItems: List<Product>) {
     LazyVerticalGrid(
         cells = GridCells.Fixed(2),
 
@@ -21,23 +22,25 @@ fun VerticalGrid(gridItems: List<Any>){
             top = 16.dp,
             end = 12.dp,
             bottom = 16.dp
-        ),
-        content = {
-            items(gridItems.size) { index ->
-                VerticalGridItem(scrollItem = "")
-            }
+        )
+    ) {
+        items(gridItems.size) { index ->
+            VerticalGridItem(scrollItem = gridItems[index])
         }
-    )
+    }
 }
 
 @Composable
-fun VerticalGridItem(scrollItem: Any) {
+fun VerticalGridItem(scrollItem: Product) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 4.dp)
     ) {
-        ItemWithDiscountImage(contentAlignment = Alignment.TopStart)
-        ItemInfo(modifier = Modifier.wrapContentSize(), item = "")
+        ItemWithDiscountImage(
+            scrollItem.imageUrl.toString(),
+            scrollItem.dropRatio.toString(), contentAlignment = Alignment.TopEnd
+        )
+        ItemInfo(modifier = Modifier.wrapContentSize(), item = scrollItem)
     }
 }
