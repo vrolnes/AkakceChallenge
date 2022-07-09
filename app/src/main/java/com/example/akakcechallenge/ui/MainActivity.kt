@@ -1,4 +1,4 @@
-package com.example.akakcechallenge
+package com.example.akakcechallenge.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,10 +13,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.akakcechallenge.feature.detailScreen.DetailScreen
-import com.example.akakcechallenge.feature.detailScreen.DetailViewModel
-import com.example.akakcechallenge.feature.mainScreen.MainScreen
-import com.example.akakcechallenge.feature.mainScreen.MainViewModel
+import com.example.akakcechallenge.ui.feature.detailScreen.DetailScreen
+import com.example.akakcechallenge.ui.feature.detailScreen.DetailViewModel
+import com.example.akakcechallenge.ui.feature.mainScreen.MainScreen
+import com.example.akakcechallenge.ui.feature.mainScreen.MainViewModel
 import com.example.akakcechallenge.ui.theme.AkakceChallengeTheme
 import dagger.hilt.android.AndroidEntryPoint
 

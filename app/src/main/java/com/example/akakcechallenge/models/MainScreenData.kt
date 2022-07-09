@@ -1,4 +1,4 @@
-package com.example.akakcechallenge.data
+package com.example.akakcechallenge.models
 
 data class MainResult(
     val result: Result?

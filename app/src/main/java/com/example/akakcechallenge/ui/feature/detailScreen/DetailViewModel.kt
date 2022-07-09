@@ -1,9 +1,9 @@
-package com.example.akakcechallenge.feature.detailScreen
+package com.example.akakcechallenge.ui.feature.detailScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.akakcechallenge.data.DetailScreenResult
-import com.example.akakcechallenge.network.ApiService
+import com.example.akakcechallenge.models.DetailScreenResult
+import com.example.akakcechallenge.api.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking

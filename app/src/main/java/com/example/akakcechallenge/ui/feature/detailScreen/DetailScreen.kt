@@ -1,4 +1,4 @@
-package com.example.akakcechallenge.feature.detailScreen
+package com.example.akakcechallenge.ui.feature.detailScreen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
