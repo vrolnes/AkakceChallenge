@@ -9,20 +9,19 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.akakcechallenge.data.DetailResult
 
 @Composable
-fun StorageRow() {
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = "Kapasite seçenekleri")
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-            OutlinedButton(onClick = { }) {
-                Text(text = "128 GB")
-            }
-            OutlinedButton(onClick = { }) {
-                Text(text = "256 GB")
-            }
-            OutlinedButton(onClick = { }) {
-                Text(text = "512 GB")
+fun StorageRow(detailResult: DetailResult) {
+    detailResult.storageOptions.let {
+        Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(text = "Kapasite seçenekleri")
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
+                it.forEach{
+                    OutlinedButton(onClick = { }) {
+                        Text(text = it)
+                    }
+                }
             }
         }
     }

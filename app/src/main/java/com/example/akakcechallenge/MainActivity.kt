@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.akakcechallenge.feature.detailScreen.DetailScreen
+import com.example.akakcechallenge.feature.detailScreen.DetailViewModel
 import com.example.akakcechallenge.feature.mainScreen.MainScreen
 import com.example.akakcechallenge.feature.mainScreen.MainViewModel
 import com.example.akakcechallenge.ui.theme.AkakceChallengeTheme
@@ -22,6 +23,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val mainViewModel: MainViewModel by viewModels()
+        val detailViewModel: DetailViewModel by viewModels()
         setContent {
             val navController = rememberNavController()
             AkakceChallengeTheme {
@@ -42,7 +44,10 @@ class MainActivity : ComponentActivity() {
                             "detailScreen/{code}",
                             arguments = listOf(navArgument("code") { type = NavType.StringType })
                         ) { backStackEntry ->
-                            DetailScreen(backStackEntry.arguments?.getString("code"))
+                            DetailScreen(
+                                backStackEntry.arguments?.getString("code"),
+                                detailViewModel
+                            )
                         }
                     }
                 }

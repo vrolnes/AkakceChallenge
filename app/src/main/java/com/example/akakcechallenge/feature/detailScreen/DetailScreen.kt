@@ -11,18 +11,20 @@ import com.example.akakcechallenge.ui.component.ItemDetailInfo
 import com.example.akakcechallenge.ui.component.StorageRow
 
 @Composable
-fun DetailScreen(string: String?) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-    ) {
-        DetailTopRow()
-        AsyncImage(
-            modifier = Modifier.fillMaxWidth(),
-            imageUrl = "https://cdn.akakce.com/x/apple/iphone-13.jpg"
-        )
-        StorageRow()
-        ItemDetailInfo(modifier = Modifier.fillMaxWidth(), item = "")
+fun DetailScreen(code: String?, detailViewModel: DetailViewModel) {
+    detailViewModel.getDetailScreen(code.toString())?.let {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+        ) {
+            DetailTopRow(it.result)
+            AsyncImage(
+                modifier = Modifier.fillMaxWidth(),
+                imageUrl = it.result.imageUrl
+            )
+            StorageRow(it.result)
+            ItemDetailInfo(modifier = Modifier.fillMaxWidth(), item = it.result)
+        }
     }
 }

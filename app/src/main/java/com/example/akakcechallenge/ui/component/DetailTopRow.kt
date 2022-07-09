@@ -10,16 +10,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.example.akakcechallenge.data.DetailResult
 import com.gowtham.ratingbar.RatingBar
 
 @Composable
-fun DetailTopRow(){
-    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text(text = "Apple", color = Color.Blue)
-            Text(text = "iPhone 13 128 GB")
-            Text(text = "En Popüler Cep Telefonu", modifier = Modifier.background(Color.Yellow))
+fun DetailTopRow(detailResult: DetailResult) {
+    detailResult.let {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(text = it.mkName, color = Color.Blue)
+                Text(text = it.productName)
+                Text(text = it.badge, modifier = Modifier.background(Color.Yellow))
+            }
+            RatingBar(value = it.rating.toFloat(), onValueChange = {}, onRatingChanged = {})
         }
-        RatingBar(value = 4F, onValueChange = {}, onRatingChanged = {})
     }
 }

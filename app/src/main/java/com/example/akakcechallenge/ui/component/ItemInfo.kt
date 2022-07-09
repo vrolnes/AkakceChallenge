@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.akakcechallenge.data.DetailResult
 import com.example.akakcechallenge.data.HorizontalProduct
 import com.example.akakcechallenge.data.Product
 
@@ -39,15 +40,17 @@ fun ItemInfo(modifier: Modifier, item: Product) {
 
 
 @Composable
-fun ItemDetailInfo(modifier: Modifier, item: Any) {
+fun ItemDetailInfo(modifier: Modifier, item: DetailResult) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(4.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "131 satıcı >", fontWeight = FontWeight.Bold)
-        Text(text = "20.567,00 TL", fontWeight = FontWeight.Bold)
-        Text(text = "Ücretsiz Kargo", color = Color.Green)
-        Text(text = "Son güncelleme: Şimdi", color = Color.Gray)
+        item.let {
+            Text(text = "${it.countOfPrices} satıcı >", fontWeight = FontWeight.Bold)
+            Text(text = "${it.price} TL", fontWeight = FontWeight.Bold)
+            if (it.freeShipping) Text(text = "Ücretsiz Kargo", color = Color.Green)
+            Text(text = "Son güncelleme: ${it.lastUpdate}", color = Color.Gray)
+        }
     }
 }
