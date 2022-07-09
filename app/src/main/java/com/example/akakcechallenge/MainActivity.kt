@@ -18,7 +18,9 @@ import com.example.akakcechallenge.feature.detailScreen.DetailViewModel
 import com.example.akakcechallenge.feature.mainScreen.MainScreen
 import com.example.akakcechallenge.feature.mainScreen.MainViewModel
 import com.example.akakcechallenge.ui.theme.AkakceChallengeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
