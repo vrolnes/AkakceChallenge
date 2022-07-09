@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import coil.compose.SubcomposeAsyncImage
 
 @Composable
-fun AsyncImage(modifier: Modifier, imageUrl: String){
+fun AsyncImage(modifier: Modifier, imageUrl: String) {
     SubcomposeAsyncImage(
         modifier = modifier,
         model = imageUrl,

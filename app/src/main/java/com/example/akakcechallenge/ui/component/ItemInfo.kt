@@ -33,8 +33,11 @@ fun ItemInfo(modifier: Modifier, item: Product) {
         Text(text = item.name.toString(), color = Color.Blue)
         Spacer(modifier = Modifier.width(4.dp))
         Text(text = "${item.price.toString()} TL", fontWeight = FontWeight.ExtraBold)
-        if (item.countOfPrices != null)Text(text = "${item.countOfPrices.toString()} satıcı >", fontWeight = FontWeight.Light)
-        if (item.followCount != null)Text(text = "${item.followCount.toString()} takip")
+        if (item.countOfPrices != null) Text(
+            text = "${item.countOfPrices.toString()} satıcı >",
+            fontWeight = FontWeight.Light
+        )
+        if (item.followCount != null) Text(text = "${item.followCount.toString()} takip")
     }
 }
 

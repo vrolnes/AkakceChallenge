@@ -14,10 +14,16 @@ import com.example.akakcechallenge.data.DetailResult
 @Composable
 fun StorageRow(detailResult: DetailResult) {
     detailResult.storageOptions.let {
-        Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Text(text = "Kapasite seçenekleri")
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-                it.forEach{
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                it.forEach {
                     OutlinedButton(onClick = { }) {
                         Text(text = it)
                     }

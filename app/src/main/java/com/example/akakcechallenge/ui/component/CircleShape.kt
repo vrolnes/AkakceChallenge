@@ -26,7 +26,8 @@ fun CircleShape(text: String) {
             Text(
                 text = "%$text",
                 color = Color.White,
-                modifier = Modifier)
+                modifier = Modifier
+            )
         }
     }
 }
