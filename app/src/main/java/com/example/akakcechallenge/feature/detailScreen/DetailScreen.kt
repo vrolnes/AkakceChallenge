@@ -11,7 +11,7 @@ import com.example.akakcechallenge.ui.component.ItemDetailInfo
 import com.example.akakcechallenge.ui.component.StorageRow
 
 @Composable
-fun DetailScreen() {
+fun DetailScreen(string: String?) {
     Column(
         modifier = Modifier
             .fillMaxSize()

@@ -1,5 +1,9 @@
 package com.example.akakcechallenge.data
 
+data class DetailScreenResult(
+    val result: DetailResult
+)
+
 data class DetailResult(
     val badge: String,
     val countOfPrices: Int,

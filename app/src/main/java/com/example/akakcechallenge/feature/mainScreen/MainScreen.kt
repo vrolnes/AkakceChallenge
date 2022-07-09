@@ -12,8 +12,6 @@ import com.example.akakcechallenge.ui.component.VerticalGrid
 
 @Composable
 fun MainScreen(
-    navController: NavHostController,
-    test: List<String>,
     onItemClicked: (String) -> Unit,
     mainViewModel: MainViewModel
 ) {
@@ -26,7 +24,7 @@ fun MainScreen(
                     onItemClicked
                 )
             }
-            it.result?.products?.let { it1 -> VerticalGrid(gridItems = it1) }
+            it.result?.products?.let { it1 -> VerticalGrid(gridItems = it1, onItemClicked) }
         }
     }
 }

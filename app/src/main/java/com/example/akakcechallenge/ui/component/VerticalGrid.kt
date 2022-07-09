@@ -1,6 +1,7 @@
 package com.example.akakcechallenge.ui.component
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -12,7 +13,7 @@ import com.example.akakcechallenge.data.Product
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun VerticalGrid(gridItems: List<Product>) {
+fun VerticalGrid(gridItems: List<Product>, onItemClicked: (String) -> Unit) {
     LazyVerticalGrid(
         cells = GridCells.Fixed(2),
 
@@ -25,17 +26,20 @@ fun VerticalGrid(gridItems: List<Product>) {
         )
     ) {
         items(gridItems.size) { index ->
-            VerticalGridItem(scrollItem = gridItems[index])
+            VerticalGridItem(scrollItem = gridItems[index], onItemClicked)
         }
     }
 }
 
 @Composable
-fun VerticalGridItem(scrollItem: Product) {
+fun VerticalGridItem(scrollItem: Product, onItemClicked: (String) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 4.dp)
+            .clickable {
+                onItemClicked(scrollItem.code.toString())
+            }
     ) {
         ItemWithDiscountImage(
             scrollItem.imageUrl.toString(),
