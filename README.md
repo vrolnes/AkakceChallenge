@@ -27,5 +27,8 @@ Download the code and run.
 ## 📱 Screenshots
 
 <p align="center">
-  <img src="docs/1.png" height="32%"/>
+  <img src="docs/1.png" width="32%"/>
+</p>
+<p align="center">
+  <img src="docs/2.png" width="32%"/>
 </p>
