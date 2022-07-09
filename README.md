@@ -5,7 +5,6 @@
 ## Left TODO
 
 - Error handling
-- Dependency injection
 - Pagination for vertical grid
 - Improve UI responsiveness
 
