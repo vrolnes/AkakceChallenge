@@ -17,6 +17,7 @@ Application uses the following libraries and etc. :
 - [Coil] - Library for async image loading to compose.
 - [Retrofit] - Library for getting data from remote.
 - [Accompanist] - Horizontal pager for compose.
+- [Hilt] - Library for dependency injection.
 
 
 ## Installation
